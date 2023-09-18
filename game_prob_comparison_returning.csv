@@ -1,0 +1,19 @@
+Player1 point score,Player2 point score,Predicted game winning probability (male players),Objective game winning probability (male players),Predicted game winning probability (female players),Objective game winning probability (female players)
+0,0,0.21,0.2,0.35,0.34
+0,15,0.12,0.2,0.22,0.34
+0,30,0.05,0.18,0.11,0.33
+0,40,0.01,0.14,0.03,0.29
+15,0,0.35,0.21,0.52,0.34
+15,15,0.23,0.24,0.37,0.35
+15,30,0.12,0.23,0.21,0.35
+15,40,0.04,0.21,0.07,0.34
+30,0,0.57,0.18,0.71,0.33
+30,15,0.42,0.24,0.57,0.36
+30,30,0.26,0.26,0.38,0.37
+30,40,0.09,0.27,0.17,0.37
+40,0,0.81,0.14,0.89,0.3
+40,15,0.70,0.21,0.81,0.35
+40,30,0.53,0.27,0.65,0.38
+40,40,0.26,0.28,0.38,0.38
+Ad,40,0.53,0.28,0.65,0.38
+40,Ad,0.09,0.28,0.17,0.39
