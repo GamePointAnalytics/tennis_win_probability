@@ -5,14 +5,8 @@ namespace tennis_score_win_probability
 {
     internal class TennisWinningProbabilities
     {
-        /// <summary>
-        /// Calculate the probability of player1 winning the current game given the current score.
-        /// Uses recursive calculation based on the probability of winning the next point.
-        /// </summary>
-        /// <param name="score1">Player1's current score (0-4, where 0=0, 1=15, 2=30, 3=40, 4=Ad)</param>
-        /// <param name="score2">Player2's current score (0-4)</param>
-        /// <param name="pointWonPct1">Probability that player1 wins any single point (0.0-1.0)</param>
-        /// <returns>Probability that player1 wins the game (0.0-1.0)</returns>
+        // Calculate the probability of player1 winning a game from the current score
+        // using recursive calculation based on point-winning probability.
         static float Player1GameWinningProbability(int score1, int score2, float pointWonPct1)
         {
             float prob = 0f;
@@ -55,17 +49,8 @@ namespace tennis_score_win_probability
             return prob;
         }
 
-        /// <summary>
-        /// Calculate the probability of player1 winning a tiebreak game.
-        /// Accounts for alternating serves and different point-winning probabilities on serve vs return.
-        /// </summary>
-        /// <param name="tbScore1">Player1's current tiebreak score</param>
-        /// <param name="tbScore2">Player2's current tiebreak score</param>
-        /// <param name="player1ServicePointWinningProb">Probability player1 wins a point when serving</param>
-        /// <param name="player1ReturnPointWinningProb">Probability player1 wins a point when returning</param>
-        /// <param name="player1ServingFirst">True if player1 serves first in the tiebreak</param>
-        /// <param name="tbTarget">Points needed to win tiebreak (default 7)</param>
-        /// <returns>Probability that player1 wins the tiebreak (0.0-1.0)</returns>
+        // Calculate the probability of player1 winning a tiebreak game.
+        // Accounts for alternating serves and different point-winning probabilities on serve vs return.
         static public float tiebreakGameWinningProbability(int tbScore1, int tbScore2,
             float player1ServicePointWinningProb, float player1ReturnPointWinningProb, bool player1ServingFirst, int tbTarget = 7)
         {
@@ -155,16 +140,8 @@ namespace tennis_score_win_probability
             }
         }
 
-        /// <summary>
-        /// Calculate the probability of player1 winning the current set given the current game score.
-        /// Handles both regular sets (first to 6 games with 2+ lead) and tiebreak scenarios (at 6-6).
-        /// </summary>
-        /// <param name="score1">Player1's current game score in the set (0-7)</param>
-        /// <param name="score2">Player2's current game score in the set (0-7)</param>
-        /// <param name="player1ServicePointWinningProb">Probability player1 wins a point when serving</param>
-        /// <param name="player1ReturnPointWinningProb">Probability player1 wins a point when returning</param>
-        /// <param name="player1ServingFirst">True if player1 serves first in the set</param>
-        /// <returns>Probability that player1 wins the set (0.0-1.0)</returns>
+        // Calculate the probability of player1 winning a set from the current game score.
+        // Handles both regular sets (first to 6 games with 2+ lead) and tiebreak scenarios (at 6-6).
         static float Player1SetWinningProbability(int score1, int score2,
             float player1ServicePointWinningProb, float player1ReturnPointWinningProb, bool player1ServingFirst)
         {
@@ -268,11 +245,7 @@ namespace tennis_score_win_probability
             return probability;
         }
 
-        /// <summary>
-        /// Convert numeric score (0-4) to traditional tennis scoring notation.
-        /// </summary>
-        /// <param name="simpleScore">Numeric score (0=0, 1=15, 2=30, 3=40, 4=Ad)</param>
-        /// <returns>Traditional tennis score string</returns>
+        // Convert numeric score (0-4) to traditional tennis scoring notation.
         static string ToTraditionalScore(int simpleScore)
         {
             switch (simpleScore)
@@ -288,12 +261,8 @@ namespace tennis_score_win_probability
             return "";
         }
 
-        /// <summary>
-        /// Calculate and print set winning probabilities for all possible game scores (0-6, 0-6)
-        /// for both cases: player1 serving first and player2 serving first.
-        /// </summary>
-        /// <param name="player1ServicePointWinningProb">Probability player1 wins a point when serving</param>
-        /// <param name="player1ReturnPointWinningProb">Probability player1 wins a point when returning</param>
+        // Calculate and print set winning probabilities for all possible game scores.
+        // Considers both player1 serving first and player2 serving first.
         static public void CalcualteSetWinningProbabilities(float player1ServicePointWinningProb, 
             float player1ReturnPointWinningProb)
         {
@@ -318,11 +287,7 @@ namespace tennis_score_win_probability
             }
         }
 
-        /// <summary>
-        /// Calculate and print game winning probabilities for all possible point scores
-        /// in a standard tennis game.
-        /// </summary>
-        /// <param name="pointWinPct1">Probability that player1 wins any single point</param>
+        // Calculate and print game winning probabilities for all possible point scores.
         static public void CalculateGameWinningProbabilities(float pointWinPct1)
         {
             Console.WriteLine("Player1's probably of winning a point:" + pointWinPct1);
